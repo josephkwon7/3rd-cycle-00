@@ -14,8 +14,8 @@ public class WelcomeController {
 		//System.out.println("name : " + name + " age : " + age);
 		//model.addAttribute("name", name );
 		//model.addAttribute("age", age );
-		List<MyModel> repo = Arrays.asList(new MyModel("javajigi"), new MyModel("sanjigi"), new MyModel("joseph"));
-		model.addAttribute("repo", repo);		
+		//List<MyModel> repo = Arrays.asList(new MyModel("javajigi"), new MyModel("sanjigi"), new MyModel("joseph"));
+		//model.addAttribute("repo", repo);		
 		
 
 		return "welcome";

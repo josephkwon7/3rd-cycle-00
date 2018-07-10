@@ -26,13 +26,33 @@ public class User {
 		this.password = password;
 	}
 	
+	public boolean matchPassword(String newPassword) {
+		if (newPassword == null) {
+			return false;
+		}
+		
+		return newPassword.equals(password);
+	}
+	
 	public String getPassword() {
 		return password;
+	}
+	
+	public String getUserId() {
+		return userId;
 	}
 	
 	public Long getId() {
 		return id;
 	}
+	
+	public boolean matchId(Long newId) {
+		if (newId == null) {
+			return false;
+		}
+		
+		return newId.equals(id);
+	}	
 
 	public void setName(String name) {
 		this.name = name;

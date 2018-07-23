@@ -5,7 +5,7 @@ public class Result {
 	
 	private String errorMessage;
 	
-	private Result(boolean valid, String  errrorMessage) {
+	private Result(boolean valid, String  errorMessage) {
 		this.valid = valid;
 		this.errorMessage = errorMessage;
 	}
@@ -20,6 +20,10 @@ public class Result {
 	
 	public static Result fail(String errorMessage) {
 		return new Result(false, errorMessage);
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
 	}
 	
 }

@@ -44,6 +44,7 @@ public class UserController {
 		
 		System.out.println("Login Success!");
 		session.setAttribute(HttpSessionUtils.USER_SESSION_KEY, user);
+		System.out.println("##### " + session.getAttribute(HttpSessionUtils.USER_SESSION_KEY));
 		
 		return "redirect:/";
 	}
@@ -75,11 +76,13 @@ public class UserController {
 
 	@GetMapping("/{id}/form")
 	public String updateForm(@PathVariable Long id, Model model, HttpSession session) {
-		if (HttpSessionUtils.isLoginUser(session)) {
+		System.out.println("##### " + session);
+		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:/users/loginForm";
 		}
 		
 		User sessionedUser = HttpSessionUtils.getUserFromSession(session);
+		System.out.println("!!!!! " + id + " " + sessionedUser);
 		if(!sessionedUser.matchId(id)) {
 			throw new IllegalStateException("You can't update another user.");
 		} 
@@ -91,7 +94,7 @@ public class UserController {
 	
 	@PutMapping("/{id}")
 	public String update(@PathVariable Long id, User updatedUser, HttpSession session) {
-		if (HttpSessionUtils.isLoginUser(session)) {
+		if (!HttpSessionUtils.isLoginUser(session)) {
 			return "redirect:/users/loginForm";
 		}
 		
